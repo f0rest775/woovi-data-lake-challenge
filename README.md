@@ -193,7 +193,6 @@ SELECT count() FROM pix_analytics.transactions;
 
 ### **Backend API (Koa.js)**
 - **Framework**: Koa.js com TypeScript
-- **Validação**: Validação rigorosa de entrada
 - **Middleware**: CORS, body parser, logging
 - **Testes**: Jest
 
