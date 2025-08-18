@@ -1,0 +1,28 @@
+{
+  "name": "@data-lake/clickhouse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "format": "pnpm dlx @biomejs/biome check src --fix --unsafe"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@data-lake/biomejs": "workspace:*",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^24.2.1",
+    "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@clickhouse/client": "^1.12.1",
+    "@data-lake/env": "workspace:*"
+  }
+}

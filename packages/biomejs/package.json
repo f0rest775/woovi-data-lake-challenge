@@ -1,0 +1,15 @@
+{
+	"name": "@data-lake/biomejs",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"format": "biome check . --fix --unsafe"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "2.2.0"
+	}
+}

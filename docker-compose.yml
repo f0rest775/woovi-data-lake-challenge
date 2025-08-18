@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: pix-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - pix-network
+  mongo-init-replica:
+    image: mongo:7.0
+    depends_on:
+      - mongodb
+    entrypoint: >
+      bash -c "
+        echo 'Aguardando MongoDB' &&
+        until mongosh --host mongodb:27017 --eval 'db.adminCommand(\"ping\")' >/dev/null 2>&1; do
+          sleep 2
+        done &&
+        echo 'Iniciando ReplicaSet' &&
+        mongosh --host mongodb:27017 --eval '
+          try {
+            rs.initiate({
+              _id: \"rs0\",
+              members: [ { _id: 0, host: \"localhost:27017\" } ]
+            })
+          } catch(e) { print(e); }
+        '
+      "
+    networks:
+      - pix-network
+    restart: "no"
+
+
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: pix-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    networks:
+      - pix-network
+
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: pix-clickhouse
+    restart: unless-stopped
+    ports:
+      - "8123:8123"     
+      - "9009:9000"     
+    environment:
+      CLICKHOUSE_DB: pix_analytics
+      CLICKHOUSE_USER: clickhouse
+      CLICKHOUSE_PASSWORD: clickhouse123
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    networks:
+      - pix-network
+
+
+networks:
+  pix-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+  minio_data:
+    driver: local
+  clickhouse_data:
+    driver: local

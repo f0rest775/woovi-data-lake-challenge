@@ -1,0 +1,47 @@
+{
+  "name": "@data-lake/backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "pnpm dlx @biomejs/biome check src --fix --unsafe",
+    "dev": "tsx watch --env-file=../../.env src/server.ts",
+    "start": "node --env-file=../../.env dist/server.js",
+    "build": "tsup",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@data-lake/biomejs": "workspace:*",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/jest": "^30.0.0",
+    "@types/kcors": "^2.2.8",
+    "@types/koa": "^3.0.0",
+    "@types/koa-bodyparser": "^4.3.12",
+    "@types/koa-logger": "^3.1.5",
+    "@types/koa__router": "^12.0.4",
+    "@types/node": "^24.2.1",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.0.5",
+    "mongodb-memory-server": "^10.1.3",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.1",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.4",
+    "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@data-lake/clickhouse": "workspace:*",
+    "@data-lake/env": "workspace:*",
+    "@data-lake/mongodb": "workspace:*",
+    "@data-lake/redis": "workspace:*",
+    "@koa/router": "^14.0.0",
+    "kcors": "^2.2.2",
+    "koa": "^3.0.1",
+    "koa-bodyparser": "^4.4.1",
+    "koa-logger": "^4.0.0"
+  }
+}
