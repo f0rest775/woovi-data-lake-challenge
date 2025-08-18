@@ -124,8 +124,8 @@ k6 run --env API_URL=http://localhost:3333/api k6.js
 
 ```bash
 # Clonar o repositório
-git clone <repository-url>
-cd data-lake
+git clone https://github.com/f0rest775/woovi-data-lake-challenge.git
+cd woovi-data-lake-challenge
 
 # Instalar dependências
 pnpm install
