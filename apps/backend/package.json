@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@data-lake/clickhouse": "workspace:*",
-    "@data-lake/env": "workspace:*",
     "@data-lake/mongodb": "workspace:*",
     "@data-lake/redis": "workspace:*",
     "@koa/router": "^14.0.0",

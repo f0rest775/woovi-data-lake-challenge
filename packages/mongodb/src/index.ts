@@ -1,4 +1,4 @@
-export * from '../src/modules/transactions'
+export * from './modules/transactions'
 
 import mongoose from 'mongoose'
 export default mongoose

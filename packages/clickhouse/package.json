@@ -22,7 +22,6 @@
     "typescript": "5.9.2"
   },
   "dependencies": {
-    "@clickhouse/client": "^1.12.1",
-    "@data-lake/env": "workspace:*"
+    "@clickhouse/client": "^1.12.1"
   }
 }

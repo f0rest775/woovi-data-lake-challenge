@@ -1,5 +1,5 @@
 import { createClient } from '@clickhouse/client'
-import { config } from '@data-lake/env'
+import { config } from './config'
 
 export const clickHouseClient = createClient({
 	url: config.CLICKHOUSE_URL,

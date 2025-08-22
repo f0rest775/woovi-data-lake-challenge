@@ -1,4 +1,4 @@
-import { config } from '@data-lake/env'
+import { config } from './config'
 import app from './app'
 import { connectDatabase } from './database'
 

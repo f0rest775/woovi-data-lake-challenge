@@ -2,22 +2,21 @@
   "name": "@data-lake/redis",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.js"
+    "dist"
   ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "format": "pnpm dlx @biomejs/biome check index.ts --fix --unsafe"
+    "format": "pnpm dlx @biomejs/biome check src --fix --unsafe"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ioredis": "^5.7.0",
-    "@data-lake/env": "workspace:*"
+    "ioredis": "^5.7.0"
   },
   "devDependencies": {
     "@data-lake/biomejs": "workspace:*",

@@ -1,4 +1,4 @@
-import { config } from '@data-lake/env'
+import { config } from './config'
 import mongoose from '@data-lake/mongodb'
 
 async function connectDatabase() {

@@ -1,6 +1,6 @@
 import mongoose from '@data-lake/mongodb'
 
-import { config } from '@data-lake/env'
+import { config } from './config'
 
 async function connectDatabase() {
 	mongoose.connection.on('close', () =>
